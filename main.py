@@ -1,27 +1,12 @@
-import hashlib
-import vk_api
-from vk_api import audio
 from requests import request
 from bs4 import BeautifulSoup
 import lxml
 import os
 import ast
 
-def check_hash(password):
-    with open('hash.txt', 'r') as file:
-        hash = file.read()
-    return password == hash
-
 def create_dir(path):
     if not os.path.exists(path):
         os.makedirs(path)
-
-def get_name(url):
-    name = []
-    for i in range(-1, -len(url), -1):
-        name.insert(i, url[i])
-        if url[i - 1] == '/':
-            return name
 
 def get_id(id):
     return id.split('-')[2]
